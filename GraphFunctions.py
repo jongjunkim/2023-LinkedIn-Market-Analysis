@@ -25,8 +25,8 @@ class GraphFunctions:
         percentage = (count_sponsored / total_count) * 100 if total_count > 0 else 0
 
         ax.bar(["Sponsored", "Not_Sponsored"], [count_sponsored, count_not_sponsored])
-        ax.set_ylabel('Number of Documents')
-        ax.set_title('Documents Count: Sponsored vs Not_Sponsored')
+        ax.set_ylabel('Number of Sponosred and Non_Sponsored')
+        ax.set_title('Sponsored vs Not_Sponsored')
 
         text_widget.insert(tk.END, f"Percentage of documents where 'sponsored' is True: {percentage:.2f}%")
 
