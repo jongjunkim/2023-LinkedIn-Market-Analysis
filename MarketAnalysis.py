@@ -40,9 +40,17 @@ class MarketAnalysis:
                                 command=lambda: self.graph_functions.num_of_job(self.ax, self.canvas, self.text_widget))
         run_button2.pack()
 
-        run_button3 = tk.Button(self.root, text="Number of Jobs in each State in US",
+        run_button3 = tk.Button(self.root, text="Top 10 States with the Highest Number of Jobs",
                                 command=lambda: self.graph_functions.jobs_in_each_state(self.ax, self.canvas, self.text_widget))
         run_button3.pack()
+
+        run_button4 = tk.Button(self.root, text="Work_type in US",
+                                command=lambda: self.graph_functions.work_type(self.ax, self.canvas, self.text_widget))
+        run_button4.pack()
+
+        run_button5 = tk.Button(self.root, text="Number of companies in Each State",
+                                command=lambda: self.graph_functions.num_of_companies_each_state(self.ax, self.canvas, self.text_widget))
+        run_button5.pack()
 
     def on_closing(self):
         self.root.quit()

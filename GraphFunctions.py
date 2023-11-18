@@ -119,3 +119,89 @@ class GraphFunctions:
         # Redraw the canvas with the new plot
         canvas.draw_idle()
 
+
+    def work_type(self, ax, canvas, text_widget):
+        self.clear_figure(ax, canvas, text_widget)
+
+        pipeline = [
+            {
+                "$lookup": {
+                    "from": "companies",
+                    "localField": "company_id",
+                    "foreignField": "company_id",
+                    "as": "company_info"
+                }
+            },
+            {
+                "$unwind": "$company_info"
+            },
+            {
+                "$match": {"company_info.country": "US"}
+            },
+            {
+                "$group": {
+                    "_id": "$formatted_work_type",
+                    "total": {"$sum": 1}
+                }
+            },
+            {
+                "$sort": {"total":-1}
+            }
+        ]   
+
+        results = list(self.db.jobposting.aggregate(pipeline))
+
+        work_type = []
+        total = []
+        for result in results:
+            work_type.append(result['_id'])
+            total.append(result['total'])
+        
+        print(work_type)
+        print(total)
+
+
+        plt.pie(total, labels=work_type, autopct='%1.1f%%', startangle=140)
+        plt.axis('equal')
+        # Show the pie chart
+        plt.show()
+
+
+
+    def num_of_companies_each_state(self, ax, canvas, text_widget):
+        
+        self.clear_figure(ax, canvas, text_widget)
+
+        pipeline = [
+            {
+                "$match": {"country": "US"}
+            },
+            {
+                "$group": {
+                    "_id": "$state",
+                    "total": {"$sum": 1}
+                }
+            },
+            {
+                "$sort": {"total": -1}
+            }
+        ]
+
+        results = self.db.companies.aggregate(pipeline)
+        
+        states = []
+        total = []
+        for result in results:
+            states.append(result['_id'])
+            total.append(result['total'])
+        
+       
+        ax.barh(states, total, color='skyblue')
+        ax.set_xlabel('Number')
+        ax.set_ylabel('State')
+        ax.set_title('Number of Companies in Each State')
+
+      
+        canvas.draw_idle()
+
+       
