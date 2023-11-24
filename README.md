@@ -6,7 +6,7 @@
 
 **Data used: 2023-Linkedin-Market-Analysis in CSV file**
 
-**Tech Stack:  MongoDB, NoSQL, Visual Studio**
+**Tech Stack:  MongoDB, NoSQL, Visual Studio, Matplotlib**
 
 1.  Imported the data into a MongoDB database
 2.  Examined its structure once the data is in MongoDB
