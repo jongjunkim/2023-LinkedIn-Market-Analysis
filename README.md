@@ -19,7 +19,9 @@
 ![image](https://github.com/jongjunkim/2023-LinkedIn-Market-Analysis/blob/main/image/sponsored.PNG)
 
 ## Data analysis visualization
-
+![image](https://github.com/jongjunkim/2023-LinkedIn-Market-Analysis/blob/main/image/applies.PNG)
+![image](https://github.com/jongjunkim/2023-LinkedIn-Market-Analysis/blob/main/image/evenry.PNG)
+![image](https://github.com/jongjunkim/2023-LinkedIn-Market-Analysis/blob/main/image/applies.PNG)
 ![image](https://github.com/jongjunkim/2023-LinkedIn-Market-Analysis/blob/main/image/sponsorgraph.PNG)
 ![image](https://github.com/jongjunkim/2023-LinkedIn-Market-Analysis/blob/main/image/jobtitlesgraph.PNG)
 ![image](https://github.com/jongjunkim/2023-LinkedIn-Market-Analysis/blob/main/image/highest.PNG)
